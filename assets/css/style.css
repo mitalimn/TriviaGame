@@ -1,0 +1,57 @@
+body{
+	background-image: url('../images/Harry.jpg');
+	text-align: center;
+	color: #f4f4f4;
+	background-repeat: no-repeat;
+	font-size: 22px;
+}
+.frontHeader{
+	/*margin-top: px;*/
+}
+
+h1,h2{
+	padding: 30px;
+}
+#header{
+	height: 30%;
+	width: 100%;
+	background: 'red';
+}
+
+#quizPage, #gameEnd{
+	font-size: 24px;
+	color: black;
+	width:70%;
+	font-weight: bolder;
+	background: grey;
+	border-radius: 10px;
+	/*margin: 0 auto;*/
+	margin : 0 auto;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	opacity: 0.8;
+}
+#gameEnd{
+	width: 50%;
+	margin : 0 auto;
+}
+.answerList li{
+	width: 40%;
+	/*margin-left: 90px;*/
+	float: left;
+	padding: 10px;
+	margin-right: 20px;
+	background: darkgrey;
+	margin:5px;
+	border-radius: 10px;
+	list-style: none;
+	cursor: pointer;
+}
+.answerList li:hover{
+	background: blue;
+}
+
+#playButton{
+	width: 200px;
+	background: teal;
+}

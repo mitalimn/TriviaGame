@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Trivia Game">
+	<meta name="author" content="Mitali Naik">
+
+	<title>Trivia Game</title>
+
+	<!-- Bootstrap minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!--Styles -->
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+	<div id="header"><img src="./assets/images/trivia.png">
+		<nav class="nav-bar"> </nav>
+	</div>
+
+	<!--Start Page - with Play Button and the introduction about the theme of Trivia Game-->
+
+	<div id="firstPage">
+		<div class="container">
+		
+			<h2>Test your Harry Potter Knowledge</h2>			
+		</div>
+
+
+		<div id="playButton" class="button btn btn-default">Play Game</div>
+	</div>
+
+<!-- 
+	<div id="sideImage">
+		<img src="./assets/images/horse.jpg">
+
+	</div> -->
+	<div id="quizPage">
+		<div class="container">
+			<div class="questionTimer">
+				<p id="timerDisplay">Time remaining <span id="timeSeconds">30</span> seconds </p>
+			</div>
+			<div class="qa">
+				<p class="qdisplay"></p>
+				<p class="displayRightWrong"></p>
+				<ul id="answersUL" class="answerList"></ul>
+			</div>
+		</div>
+	</div>
+
+	<!--Game End-->
+	<div id="gameEnd">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="displayCount">Correct Answers<span id="totalCorrect"></span></p>
+					<p>Incorrect Answer<span id="totalIncorrect"></span></p>
+					<p>Unanswered<span id="totalNotAttempted"></span></p>
+					<p id="allCorrect"></p>
+				</div> 
+			</div> 
+
+			<div class="row">
+				<div class="col-xs-12" id="restart">
+					<p><button id="restartButton" class="btn btn-default">Play Quiz Again</button></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--JQuery CDN-->
+	<script
+  	src="https://code.jquery.com/jquery-3.1.1.js"
+  	integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  	crossorigin="anonymous"></script>
+
+  	<!-- Javascript file -->
+	<script type="text/javascript" src="./assets/javascript/app.js"></script>
+</body>
+</html>
