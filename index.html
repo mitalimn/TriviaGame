@@ -5,77 +5,64 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Trivia Game">
 	<meta name="author" content="Mitali Naik">
+	
+	<title>Trivia Game - Harry Potter</title>
 
-	<title>Trivia Game</title>
+	<!--Bootstrap CDN-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<!--Google Font-->
+	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+	<!--External Stylesheet-->
+	<link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
-	<!-- Bootstrap minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-	<!--Styles -->
-	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
-	<div id="header"><img src="./assets/images/trivia.png">
-		<nav class="nav-bar"> </nav>
-	</div>
-
-	<!--Start Page - with Play Button and the introduction about the theme of Trivia Game-->
-
-	<div id="firstPage">
-		<div class="container">
+	<div class="headerSection">
+		<img src="./assets/images/HarryCup.jpg">
+		<img src="./assets/images/trivia.png">
+		<div class= "text-center text">During the last minutes of Harry Potter and the Dealthy Hallows Part 2 your life came crashing down around you, because you realized that it was actually over. The good news is, there's a HP spin-off on its way! In anticipation of Fantastic Beasts and Where to Find Them, take this quiz to see how much you remember about the wizarding world!</div>
 		
-			<h2>Test your Harry Potter Knowledge</h2>			
+
+	<div id="questionArea">
+		<img src="./assets/images/horse.jpg" style="float: left;">
+		<h1>Trivia Game!: <span id="gold">Harry Potter</span></h1>
+
+		<p id="btnWrapper"><button class="text-center btn btn-default" id="begin">Begin!</button></p>
+
+		<div id="gameStart">	
+			<p class="timeRemaining">Time Remaining: <span id="time">30</span></p>
+
+			<p class="questions"></p>
+			<p class="answers answer1"></p>
+			<p class="answers answer2"></p>
+			<p class="answers answer3"></p>
+			<p class="answers answer4"></p>
 		</div>
 
+		<div id="divAnswers">
+			<p class="timeRemaining">Time Remaining: <span id="elapsedTime"></span></p>
+			<p id="wrongMsg">Thats a wrong answer!</p>
+			<p id="correctMsg">Absolutely correct!</p>
+			<p id="outOfTime">Time Up!</p>
+			<p id="pCorrectAnswer">The correct answer is: <span></span></p>
+			<p id="pic"></p>
+		</div>
 
-		<div id="playButton" class="button btn btn-default">Play Game</div>
-	</div>
-
-<!-- 
-	<div id="sideImage">
-		<img src="./assets/images/horse.jpg">
-
-	</div> -->
-	<div id="quizPage">
-		<div class="container">
-			<div class="questionTimer">
-				<p id="timerDisplay">Time remaining <span id="timeSeconds">30</span> seconds </p>
-			</div>
-			<div class="qa">
-				<p class="qdisplay"></p>
-				<p class="displayRightWrong"></p>
-				<ul id="answersUL" class="answerList"></ul>
-			</div>
+		<div id="gameComplete">
+			<p>Game over! Here's how you did:</p>
+			<p id="gameOverCorrect">Correct Answers: <span></span></p>
+			<p id="gameOverIncorrect">Incorrect Answers: <span></span></p>
+			<p id="unanswered">Unanswered Questions: <span></span></p>
+			<p id="restartPlaceholder"><button class="text-center btn btn-default">Restart?</button>
 		</div>
 	</div>
-
-	<!--Game End-->
-	<div id="gameEnd">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<p class="displayCount">Correct Answers<span id="totalCorrect"></span></p>
-					<p>Incorrect Answer<span id="totalIncorrect"></span></p>
-					<p>Unanswered<span id="totalNotAttempted"></span></p>
-					<p id="allCorrect"></p>
-				</div> 
-			</div> 
-
-			<div class="row">
-				<div class="col-xs-12" id="restart">
-					<p><button id="restartButton" class="btn btn-default">Play Quiz Again</button></p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!--JQuery CDN-->
+	
+	<!--jQuery CDN-->
 	<script
-  	src="https://code.jquery.com/jquery-3.1.1.js"
-  	integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-  	crossorigin="anonymous"></script>
-
-  	<!-- Javascript file -->
-	<script type="text/javascript" src="./assets/javascript/app.js"></script>
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+	<!--Java script -->
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 </html>
