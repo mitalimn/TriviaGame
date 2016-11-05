@@ -1,7 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////////
+// Created By : Mitali Naik                                                      // 
+// Assignment 5 -Coding Boot Camp                                                // 
+//                                                                               // 
+// Description: This is a version of Trivia game, on Harry Potter                //
+//                                                                               //
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
 $(document).ready(function(){
+	//Game object
 var triviaGame = {
 
-
+//Array t hold question and answers
 	qAndA:[{
 		question: "Who is the librarian at Hogwarts?",
 			ans1: "Madam Rosmerta",
@@ -38,7 +49,7 @@ var triviaGame = {
 		    ans4: "30th June",
 			imgUrl: "./assets/images/Birthday.jpg"}],
 
-	correctAnswers: ['Madam Pince', 'Romania', 'Gaunt', 'Badger', '31st July'],
+	correctAnswers: ['Madam Pince', 'Romania', 'Gaunt', 'Badger', '31st July'],//array to hold correct answers
 	userAnswers: [],
 
 	questionCount: 0,
@@ -79,7 +90,7 @@ var triviaGame = {
 		}
 
 	},
-
+//Cound down timer 
 	countDown: function(){
 
 		triviaGame.timer--;
@@ -102,7 +113,7 @@ var triviaGame = {
 		}
 
 	},
-
+//If option by player is correct
 	answersCorrect: function(){
 
 		if(newImg != ""){
@@ -131,7 +142,7 @@ var triviaGame = {
 		triviaGame.numberCorrect++;
 		triviaGame.questionCount++;
 	},
-
+//if options by user is incorrect
 	answersWrong: function(){
 
 		if(newImg != ""){
@@ -159,7 +170,7 @@ var triviaGame = {
 		triviaGame.numberIncorrect++;
 		triviaGame.questionCount++;
 	},
-
+//If the player is out of time 
 	oufOfTime: function(){
 
 		if(newImg != ""){
@@ -167,7 +178,7 @@ var triviaGame = {
 			$('#pic').empty();
 		}
 
-		triviaGame.userAnswers.push(""); // placeholder, MAY NEED TO CHANGE
+		triviaGame.userAnswers.push(""); 
 		$('#divAnswers').show();
 		$('#gameStart').hide();
 		$('#pCorrectAnswer span').html(triviaGame.correctAnswers[triviaGame.questionCount]);
@@ -205,7 +216,7 @@ var triviaGame = {
 		triviaGame.numberIncorrect = 0;
 		triviaGame.numberUnAnswered = 0;
 	},
-
+//Game Ends - Resets the DOM
 	gameFinished: function(){
 
 		$('#restartPlaceholder').css('display', 'block');
@@ -223,7 +234,7 @@ var triviaGame = {
 
 
 
-
+//Game begins on click of the start button 
 	$('#begin').on('click', function(){
 
 		$('div#gameStart').css('display', 'block');
@@ -231,14 +242,14 @@ var triviaGame = {
 		$('.questions').html(triviaGame.beginGame);
 
 	});
-
+//once the player hits options
 	$('.answers').on('click', function(){
 
 		triviaGame.userAnswers.push($(this).text());
 		triviaGame.btnClicked = true;
 
 	});
-
+//once the player hits restart - calls function restart
 	$('#restartPlaceholder').on('click', function(){
 
 		triviaGame.restart();
@@ -246,4 +257,4 @@ var triviaGame = {
 	});
 
 
-});
+});//End 
