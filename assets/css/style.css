@@ -1,34 +1,50 @@
-body {
+body{
+
 	color: #FFF;
 	background-image: url('../images/Harry.jpg');
 }
 
 div#questionArea {
 	background-color: #8D8562;
-	
-	/*border-radius: 20px;*/
-				  width: 70%;
-				  height: 435px;
-				  margin: 70px auto;
-				  padding-top: 10px;
-				  padding-bottom: 20px;
-				  border-radius: 4px;
-				  text-align: center;
-				  border-radius: 30px;
-				  opacity: 0.9;
-				  box-shadow: 8px 8px 6px #808080;}
-
-h1 {font-size: 28pt;
+	width: 60%;
+	height: 435px;
+	margin: 70px auto;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	border-radius: 4px;
 	text-align: center;
-	margin-top: 30px;}
+	border-radius: 30px;
+	opacity: 0.9;
+	box-shadow: 8px 8px 6px #808080;
+}
 
-p {font-size: 12pt;}
+
+.imgDiv{
+	margin-top: 10px;
+	margin-left: 90px;
+	border-radius: 10px;
+}
 
 
-span#gold {color: #FFD700;}	
+h1 {
+	font-size: 28pt;
+	text-align: center;
+	margin-top: 30px;
+}
 
-#btnWrapper	{text-align: center;
-			 margin-top: 125px;}
+p {
+	font-size: 13pt;
+}
+
+
+span#gold {
+	color: #FFD700;
+}	
+
+#btnWrapper	{
+	text-align: center;
+	margin-top: 125px;
+}
 
 button#begin {
 	width: 200px;
@@ -38,30 +54,42 @@ button#begin {
 	font-size: 11pt;
 	font-weight: bold;
 	border-radius: 10px;
-			}
+}
 
-button#begin:hover {color: #FFD700;
-					background-color: #000}			  	
+button#begin:hover {
+	color: #FFD700;
+	background-color: #000;
+}			  	
 
-.btn-default {background-image: none;}			  
+.btn-default {
+	background-image: none;
+}			  
 
-div#gameStart {display: none;
-			   margin-top: 20px;}	
+div#gameStart {
+	display: none;
+	margin-top: 20px;
+}	
 
-#divAnswers {display: none;}
+#divAnswers {
+	display: none;
+}
 
-p.timeRemaining {text-align: center;
-				 font-size: 14pt;
-				 margin-bottom: 20px;
-				 margin-top: 25px}
+p.timeRemaining {
+	text-align: center;
+	font-size: 14pt;
+	margin-bottom: 20px;
+	margin-top: 25px;
+}
 
-span#time {font-weight: bold;}
+span#time {
+	font-weight: bold;
+}
 
-p.answers{
+button.answers{
 	color: #FFD700;
 	font-weight: bold;
-	width: 30%;
-	margin: 5px 10px;
+	width: 35%;
+	margin: 10px 20px;
 	cursor: pointer;
 	background: black;
 	border-radius: 10px;
@@ -74,25 +102,30 @@ p.answers{
 	color: black;
 	width: 80%;
 	line-height: 160%;
-	font-size: 20px;
-	font-family: 'Coiny', cursive;
+	font-size: 22px;
+	font-family: 'Architects Daughter', cursive;
 	border-radius: 12px;
 	clear: both;
-	margin-top: 5px;
+	font-weight: bold;
+	margin-top: 15px;
 }
-p.answers:hover {
-				 color: #FFF;
-				 }
+button.answers:hover {
+	color: #FFF;
+	}
 
-#correctMovieImage	{margin-top: 20px;
-height: 200px;
-width: 200px;
-opacity: 1;	}
+#correctMovieImage	{
+	margin-top: 20px;
+	height: 200px;
+	width: 200px;
+	opacity: 1;	
+}
 
-#gameComplete {display: none;
-			   margin-top: 20px;}
+#gameComplete {
+	display: none;
+	margin-top: 20px;
+}
 
-p#restartPlaceholder button {
+div#restartPlaceholder button {
 width: 200px;
 background-color: #FFD700;
 text-shadow: none;
@@ -103,79 +136,8 @@ margin-top: 20px;
 border-radius: 10px;
 }
 
-p#restartPlaceholder button:hover
+div#restartPlaceholder button:hover
  {
  	color: #FFD700;
  	background-color: #000;
  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*body{
-	background-image: url('../images/Harry.jpg');
-	text-align: center;
-	color: #f4f4f4;
-	background-repeat: no-repeat;
-	font-size: 22px;
-}
-.frontHeader{
-	/*margin-top: px;*/
-/*}
-
-h1,h2{
-	padding: 30px;
-}
-#header{
-	height: 30%;
-	width: 100%;
-	background: 'red';
-}
-
-#quizPage, #gameEnd{
-	font-size: 24px;
-	color: black;
-	width:70%;
-	font-weight: bolder;
-	background: grey;
-	border-radius: 10px;
-	/*margin: 0 auto;*/
-/*	margin : 0 auto;
-	margin-bottom: 20px;
-	margin-top: 10px;
-	opacity: 0.8;
-}
-#gameEnd{
-	width: 50%;
-	margin : 0 auto;
-}
-.answerList li{
-	width: 40%;
-	/*margin-left: 90px;*/
-	/*float: left;
-	padding: 10px;
-	margin-right: 20px;
-	background: darkgrey;
-	margin:5px;
-	border-radius: 10px;
-	list-style: none;
-	cursor: pointer;
-}
-.answerList li:hover{
-	background: blue;
-}
-
-#playButton{
-	width: 200px;
-	background: teal;
-}*/

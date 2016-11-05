@@ -11,52 +11,74 @@
 	<!--Bootstrap CDN-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<!--Google Font-->
-	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
 	<!--External Stylesheet-->
 	<link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
 </head>
 <body>
-	<div class="headerSection">
-		<img src="./assets/images/HarryCup.jpg">
-		<img src="./assets/images/trivia.png">
-		<div class= "text-center text">During the last minutes of Harry Potter and the Dealthy Hallows Part 2 your life came crashing down around you, because you realized that it was actually over. The good news is, there's a HP spin-off on its way! In anticipation of Fantastic Beasts and Where to Find Them, take this quiz to see how much you remember about the wizarding world!</div>
-		
-
-	<div id="questionArea">
-		<img src="./assets/images/horse.jpg" style="float: left;">
-		<h1>Trivia Game!: <span id="gold">Harry Potter</span></h1>
-
-		<p id="btnWrapper"><button class="text-center btn btn-default" id="begin">Begin!</button></p>
-
-		<div id="gameStart">	
-			<p class="timeRemaining">Time Remaining: <span id="time">30</span></p>
-
-			<p class="questions"></p>
-			<p class="answers answer1"></p>
-			<p class="answers answer2"></p>
-			<p class="answers answer3"></p>
-			<p class="answers answer4"></p>
+	<div class="row">
+			<div class="col-md-5">
+				<div class="imgDiv">
+				<img src="./assets/images/HarryCup.jpg">
+				</div>
+			</div>
+			<div class="col-md-7">
+				<div class="headerImage">
+					<img src="./assets/images/trivia.png">
+				</div>
+			</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="headerSection text-center text">
+					During the last minutes of Harry Potter and the Dealthy Hallows Part 2 your life came crashing down around you, because you realized that it was actually over. The good news is, there's a HP spin-off on its way! In anticipation of Fantastic Beasts and Where to Find Them, take this quiz to see how much you remember about the wizarding world!
+			</div>
 		</div>
-
-		<div id="divAnswers">
-			<p class="timeRemaining">Time Remaining: <span id="elapsedTime"></span></p>
-			<p id="wrongMsg">Thats a wrong answer!</p>
-			<p id="correctMsg">Absolutely correct!</p>
-			<p id="outOfTime">Time Up!</p>
-			<p id="pCorrectAnswer">The correct answer is: <span></span></p>
-			<p id="pic"></p>
-		</div>
-
-		<div id="gameComplete">
-			<p>Game over! Here's how you did:</p>
-			<p id="gameOverCorrect">Correct Answers: <span></span></p>
-			<p id="gameOverIncorrect">Incorrect Answers: <span></span></p>
-			<p id="unanswered">Unanswered Questions: <span></span></p>
-			<p id="restartPlaceholder"><button class="text-center btn btn-default">Restart?</button>
-		</div>
+			
 	</div>
 	
+	<div class="row">
+		<div id="questionArea">
+			<div class="col-md-4">
+				<img src="./assets/images/horse.jpg" style="float: left; margin-left: 10px; border-radius: 50px; margin-top: 10px;">
+			</div>
+			
+			<div class="col-md-8">
+				<h1>Trivia Game!: <span id="gold">Harry Potter</span></h1>
+
+				<p id="btnWrapper"><button class="text-center btn btn-default" id="begin">Begin!</button></p>
+
+				<div id="gameStart">	
+					<p class="timeRemaining">Time Remaining: <span id="time">30</span></p>
+
+					<p class="questions"></p>
+					<button class="answers answer1"></p>
+					<button class="answers answer2"></button>
+					<button class="answers answer3"></button> 
+					<button class="answers answer4"></button> 
+				</div>
+
+				<div id="divAnswers">
+					<p class="timeRemaining">Time Remaining: <span id="elapsedTime"></span></p>
+					<p id="wrongMsg">Thats a wrong answer!</p>
+					<p id="correctMsg">Absolutely correct!</p>
+					<p id="outOfTime">Time Up!</p>
+					<p id="pCorrectAnswer">The correct answer is: <span></span></p>
+					<p id="pic"></p>
+				</div>
+
+				<div id="gameComplete">
+					<p>Game over! Here's how you did:</p>
+					<p id="gameOverCorrect">Correct Answers: <span></span></p>
+					<p id="gameOverIncorrect">Incorrect Answers: <span></span></p>
+					<p id="unanswered">Unanswered Questions: <span></span></p>
+					<div id="restartPlaceholder"><button class="text-center btn btn-default">Restart?</button></div>
+				</div>
+			</div>
+	</div>	
+	
+			
 	<!--jQuery CDN-->
 	<script
   src="https://code.jquery.com/jquery-3.1.1.js"

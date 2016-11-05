@@ -1,41 +1,47 @@
-var app = {
+$(document).ready(function(){
+var triviaGame = {
 
 
-	qAndA:[{question: "Who is the librarian at Hogwarts?",
-			pos1: "Madam Rosmerta",
-			pos2: "Madam Pince",
-			pos3: "Madam Skeeter",
-			pos4: "Madam Hootch",
+	qAndA:[{
+		question: "Who is the librarian at Hogwarts?",
+			ans1: "Madam Rosmerta",
+			ans2: "Madam Pince",
+			ans3: "Madam Skeeter",
+			ans4: "Madam Hootch",
 			imgUrl: "./assets/images/Madam_Pince.png"},
-		   {question: "Where does Charlie Weasley work with dragons??",
-			pos1: "Ireland",
-			pos2: "Transylvania",
-			pos3: "Romania",
-			pos4: "Estonia",
+	   {
+	   	question: "Where does Charlie Weasley work with dragons??",
+			ans1: "Ireland",
+			ans2: "Transylvania",
+			ans3: "Romania",
+			ans4: "Estonia",
 			imgUrl: "./assets/images/Romania.jpg"},
-		   {question: "What was Tom Riddle\'s mother\'s maiden name?",
-			pos1: "Riddle",
-			pos2: "Clearwater",
-			pos3: "Peverell",
-			pos4: "Gaunt",
+		{
+	   	question: "What was Tom Riddle\'s mother\'s maiden name?",
+			ans1: "Riddle",
+			ans2: "Clearwater",
+			ans3: "Peverell",
+			ans4: "Gaunt",
 			imgUrl: "./assets/images/Gaunt.png"},
-		   {question: "What is the symbol for Hufflepuff house?",
-			pos1: "Badger",
-			pos2: "Eagle",
-			pos3: "Snake",
-			pos4: "Lion",
+	   {
+	   	question: "What is the symbol for Hufflepuff house?",
+			ans1: "Badger",
+			ans2: "Eagle",
+			ans3: "Snake",
+			ans4: "Lion",
 			imgUrl: "./assets/images/Badger.png"},
-		   {question: "When is Harry Potter\'s Birthday?",
-		    pos1: "30th August",
-		    pos2: "30th July",
-		    pos3: "31st July",
-		    pos4: "30th June",
+		{
+		question: "When is Harry Potter\'s Birthday?",
+		    ans1: "30th August",
+		    ans2: "30th July",
+		    ans3: "31st July",
+		    ans4: "30th June",
 			imgUrl: "./assets/images/Birthday.jpg"}],
 
 	correctAnswers: ['Madam Pince', 'Romania', 'Gaunt', 'Badger', '31st July'],
 	userAnswers: [],
 
-	incrementQs: 0,
+	questionCount: 0,
 	beginInt: 0,
 
 	timer: 30,
@@ -46,54 +52,53 @@ var app = {
 	playMusic: new Audio("./assets/sounds/quizsound.mp3"),
 
 	beginGame: function(){
-		app.playMusic.play();	
-		if(app.incrementQs == app.qAndA.length){
+		triviaGame.playMusic.play();	
+		if(triviaGame.questionCount == triviaGame.qAndA.length){
 
-			app.gameFinished();
-			app.timer = 30;
+			triviaGame.gameFinished();
+			triviaGame.timer = 30;
 
 		} else {
 
-			if(app.incrementQs >= 1){
-				clearInterval(app.displayNextInt);
+			if(triviaGame.questionCount >= 1){
+				clearInterval(triviaGame.displayNextInt);
 				$('#gameStart').show();
 				$('#divAnswers').hide();
-				app.timer = 30;
-				$('#time').html(app.timer); //??
+				triviaGame.timer = 30;
+				$('#time').html(triviaGame.timer); //??
 			}
 
-			$('p.questions').html(app.qAndA[app.incrementQs].question);
-			$('p.answer1').html(app.qAndA[app.incrementQs].pos1);
-			$('p.answer2').html(app.qAndA[app.incrementQs].pos2);
-			$('p.answer3').html(app.qAndA[app.incrementQs].pos3);
-			$('p.answer4').html(app.qAndA[app.incrementQs].pos4);
+			$('p.questions').html(triviaGame.qAndA[triviaGame.questionCount].question);
+			$('button.answer1').html(triviaGame.qAndA[triviaGame.questionCount].ans1);
+			$('button.answer2').html(triviaGame.qAndA[triviaGame.questionCount].ans2);
+			$('button.answer3').html(triviaGame.qAndA[triviaGame.questionCount].ans3);
+			$('button.answer4').html(triviaGame.qAndA[triviaGame.questionCount].ans4);
 
-			app.beginInt = setInterval(app.count, 1000);
+			triviaGame.beginInt = setInterval(triviaGame.countDown, 1000);
 
 		}
 
-
 	},
 
-	count: function(){
+	countDown: function(){
 
-		app.timer--;
-		$('#time').html(app.timer);
+		triviaGame.timer--;
+		$('#time').html(triviaGame.timer);
 
-		if(app.timer == 0){
+		if(triviaGame.timer == 0){
 
-			app.oufOfTime();
-			app.playMusic.pause();
+			triviaGame.oufOfTime();
+			triviaGame.playMusic.pause();
 
-		} else if(app.btnClicked == true && app.correctAnswers[app.incrementQs] == app.userAnswers[app.incrementQs]){
+		} else if(triviaGame.btnClicked == true && triviaGame.correctAnswers[triviaGame.questionCount] == triviaGame.userAnswers[triviaGame.questionCount]){
 		
-			app.answersCorrect();
-			app.playMusic.play();
+			triviaGame.answersCorrect();
+			triviaGame.playMusic.play();
 
-		} else if(app.btnClicked == true && app.correctAnswers[app.incrementQs] != app.userAnswers[app.incrementQs]){
+		} else if(triviaGame.btnClicked == true && triviaGame.correctAnswers[triviaGame.questionCount] != triviaGame.userAnswers[triviaGame.questionCount]){
 
-			app.answersWrong();
-			app.playMusic.pause();
+			triviaGame.answersWrong();
+			triviaGame.playMusic.pause();
 		}
 
 	},
@@ -113,18 +118,18 @@ var app = {
 		$('#pCorrectAnswer').hide();	
 		$('#answers').css('display', 'block');
 		$('#timeRemaining').css('display', 'block');
-		$('#elapsedTime').html(app.timer);
+		$('#elapsedTime').html(triviaGame.timer);
 
-		clearInterval(app.beginInt);
+		clearInterval(triviaGame.beginInt);
 
-		var newImg = $("<img>").attr('src', app.qAndA[app.incrementQs].imgUrl).attr('width', '130px','height', '130px').attr('id', 'correctMovieImage');
+		var newImg = $("<img>").attr('src', triviaGame.qAndA[triviaGame.questionCount].imgUrl).attr('width', '130px','height', '130px').attr('id', 'correctMovieImage');
 
 		$('#pic').append(newImg);		
-		app.btnClicked = false;
+		triviaGame.btnClicked = false;
 
-		app.displayNextInt = setInterval(app.beginGame, 3000);
-		app.numberCorrect++;
-		app.incrementQs++;
+		triviaGame.displayNextInt = setInterval(triviaGame.beginGame, 3000);
+		triviaGame.numberCorrect++;
+		triviaGame.questionCount++;
 	},
 
 	answersWrong: function(){
@@ -140,19 +145,19 @@ var app = {
 		$('#wrongMsg').show();
 		$('#correctMsg').hide();
 		$('#pCorrectAnswer').show();
-		$('#pCorrectAnswer span').html(app.correctAnswers[app.incrementQs]);
+		$('#pCorrectAnswer span').html(triviaGame.correctAnswers[triviaGame.questionCount]);
 		$('#timeRemaining').css('display', 'block');
-		$('#elapsedTime').html(app.timer);
-		clearInterval(app.beginInt);
+		$('#elapsedTime').html(triviaGame.timer);
+		clearInterval(triviaGame.beginInt);
 
-		var newImg = $("<img>").attr('src', app.qAndA[app.incrementQs].imgUrl).attr('width', '115px').attr('id', 'correctMovieImage');
+		var newImg = $("<img>").attr('src', triviaGame.qAndA[triviaGame.questionCount].imgUrl).attr('width', '115px').attr('id', 'correctMovieImage');
 
 		$('#pic').append(newImg);
 
-		app.btnClicked = false;
-		app.displayNextInt = setInterval(app.beginGame, 5000);
-		app.numberIncorrect++;
-		app.incrementQs++;
+		triviaGame.btnClicked = false;
+		triviaGame.displayNextInt = setInterval(triviaGame.beginGame, 5000);
+		triviaGame.numberIncorrect++;
+		triviaGame.questionCount++;
 	},
 
 	oufOfTime: function(){
@@ -162,43 +167,43 @@ var app = {
 			$('#pic').empty();
 		}
 
-		app.userAnswers.push(""); // placeholder, MAY NEED TO CHANGE
+		triviaGame.userAnswers.push(""); // placeholder, MAY NEED TO CHANGE
 		$('#divAnswers').show();
 		$('#gameStart').hide();
-		$('#pCorrectAnswer span').html(app.correctAnswers[app.incrementQs]);
+		$('#pCorrectAnswer span').html(triviaGame.correctAnswers[triviaGame.questionCount]);
 		$('#pCorrectAnswer').show();
 		$('#correctMsg').hide();
 		$('#wrongMsg').hide();		
 		$('#timeRemaining').css('display', 'block');
-		$('#elapsedTime').html(app.timer);	
-		clearInterval(app.beginInt);
-		var newImg = $("<img>").attr('src', app.qAndA[app.incrementQs].imgUrl).attr('width', '115px').attr('id', 'correctMovieImage');
+		$('#elapsedTime').html(triviaGame.timer);	
+		clearInterval(triviaGame.beginInt);
+		var newImg = $("<img>").attr('src', triviaGame.qAndA[triviaGame.questionCount].imgUrl).attr('width', '115px').attr('id', 'correctMovieImage');
 
 		$('#pic').append(newImg);
 
-		app.numberUnAnswered++;
+		triviaGame.numberUnAnswered++;
 
-		app.displayNextInt = setInterval(app.beginGame, 5000);
+		triviaGame.displayNextInt = setInterval(triviaGame.beginGame, 5000);
 
-		app.incrementQs++;	
+		triviaGame.questionCount++;	
 
 	},
-
+//Restart function
 	restart: function(){
 
-		app.incrementQs = 0;
-		app.userAnswers.length = 0;
+		triviaGame.questionCount = 0;
+		triviaGame.userAnswers.length = 0;
 		$('#time').html("30");
 
-		app.beginGame();
+		triviaGame.beginGame();
 		$('#gameStart').show();
 		$('#gameComplete').hide();
 		$('#restartPlaceholder').css('display', 'none');
-		clearInterval(app.displayNextInt);
+		clearInterval(triviaGame.displayNextInt);
 		$('#elapsedTime').empty();
-		app.numberCorrect = 0;
-		app.numberIncorrect = 0;
-		app.numberUnAnswered = 0;
+		triviaGame.numberCorrect = 0;
+		triviaGame.numberIncorrect = 0;
+		triviaGame.numberUnAnswered = 0;
 	},
 
 	gameFinished: function(){
@@ -209,36 +214,36 @@ var app = {
 
 		$('#gameComplete').css('display', 'block');
 
-		$('#gameOverCorrect span').html(app.numberCorrect);
-		$('#gameOverIncorrect span').html(app.numberIncorrect);
-		$('#unanswered span').html(app.numberUnAnswered);
-		app.timer = 30;
+		$('#gameOverCorrect span').html(triviaGame.numberCorrect);
+		$('#gameOverIncorrect span').html(triviaGame.numberIncorrect);
+		$('#unanswered span').html(triviaGame.numberUnAnswered);
+		triviaGame.timer = 30;
 	}
 };
 
 
-$(document).ready(function(){
+
 
 	$('#begin').on('click', function(){
 
 		$('div#gameStart').css('display', 'block');
 		$('#btnWrapper').css('display', 'none');
-		$('.questions').html(app.beginGame);
+		$('.questions').html(triviaGame.beginGame);
 
 	});
 
 	$('.answers').on('click', function(){
 
-		app.userAnswers.push($(this).text());
-		app.btnClicked = true;
+		triviaGame.userAnswers.push($(this).text());
+		triviaGame.btnClicked = true;
 
 	});
 
 	$('#restartPlaceholder').on('click', function(){
 
-		app.restart();
+		triviaGame.restart();
 		
 	});
 
-});
 
+});
